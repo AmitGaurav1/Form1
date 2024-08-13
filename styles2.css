@@ -1,0 +1,168 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #007bff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+legend {
+    font-weight: bold;
+    color: #007bff;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    min-width: 150px;
+    margin-right: 10px;
+}
+
+.column:last-child {
+    margin-right: 0;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .column {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+.hidden {
+    display: none;
+}
+
+.hobby-list {
+    margin-top: 10px;
+}
+
+.hobby-list input[type="text"] {
+    margin-right: 10px;
+}
+
+.hobby-list ul {
+    margin-top: 10px;
+}
+
+.hobby-list li {
+    margin-bottom: 5px;
+}
+
+.upload-container {
+    display: flex;
+    gap: 300px; 
+}
+
+.upload-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#photoContainer,
+#signatureContainer {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#photoPreview,
+#signaturePreview {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+}

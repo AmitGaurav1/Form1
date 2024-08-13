@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Registration Form</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Applicant Registration Form</h2>
+        <form id="registrationForm">
+            <fieldset>
+                <legend>Personal Details</legend>
+                <div class="row">
+                    <div class="column">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="column">
+                        <label for="fatherName">Father’s Name:</label>
+                        <input type="text" id="fatherName" name="fatherName" required>
+                    </div>
+                    <div class="column">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <label for="religion">Religion:</label>
+                        <select id="religion" name="religion" required>
+                            <option value="">Select Religion</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Muslim">Muslim</option>
+                            <option value="Christian">Christian</option>
+                            <option value="Sikh">Sikh</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <label for="casteCategory">Caste Category:</label>
+                        <select id="casteCategory" name="casteCategory" required>
+                            <option value="">Select Caste Category</option>
+                            <option value="General">General</option>
+                            <option value="OBC">OBC</option>
+                            <option value="SC">SC</option>
+                            <option value="ST">ST</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <label for="gender">Gender:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="male" name="gender" value="Male" required> Male
+                            <input type="radio" id="female" name="gender" value="Female" required> Female
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Address</legend>
+                <div class="row">
+                    <div class="column">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country" onchange="updateStates()" required>
+                            <option value="">Select Country</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <label for="state">State:</label>
+                        <select id="state" name="state" onchange="updateDistricts()" required>
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <label for="district">District:</label>
+                        <select id="district" name="district" required>
+                            <option value="">Select District</option>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <label for="pinCode">Pin Code:</label>
+                        <input type="text" id="pinCode" name="pinCode" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Education</legend>
+                <div class="row">
+                    <div class="column">
+                        <input type="checkbox" id="highSchool" name="education" value="High School">
+                        <label for="highSchool">High School</label>
+                    </div>
+                    <div class="column">
+                        <input type="checkbox" id="intermediate" name="education" value="Intermediate">
+                        <label for="intermediate">Intermediate</label>
+                    </div>
+                    <div class="column">
+                        <input type="checkbox" id="graduation" name="education" value="Graduation">
+                        <label for="graduation">Graduation</label>
+                    </div>
+                    <div class="column">
+                        <input type="checkbox" id="postGraduation" name="education" value="Post Graduation">
+                        <label for="postGraduation">Post Graduation</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Hobbies</legend>
+                <label for="hobbies">Hobbies:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="playingGames" name="hobbies" value="Playing Games" onclick="toggleList('games')"> Playing Games
+                </div>
+                <div id="gamesList" class="hobby-list hidden">
+                    <input type="text" id="gameInput" placeholder="Add new game">
+                    <button type="button" onclick="addItem('gameInput', 'gameList')">Add Game</button>
+                    <ul id="gameList"></ul>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="watchingMovies" name="hobbies" value="Watch Movies" onclick="toggleList('movies')"> Watch Movies
+                </div>
+                <div id="moviesList" class="hobby-list hidden">
+                    <input type="text" id="movieInput" placeholder="Add new movie">
+                    <button type="button" onclick="addItem('movieInput', 'movieList')">Add Movie</button>
+                    <ul id="movieList"></ul>
+                </div>
+            </fieldset>
+            
+            
+            <fieldset>
+                <legend>Upload</legend>
+                <div class="upload-container">
+                    <div class="upload-item">
+                        <label for="photoPreview">Photo:</label>
+                        <div id="photoContainer">
+                            <img id="photoPreview" src="placeholder-image.jpg" alt="Photo Preview" onclick="document.getElementById('photo').click();">
+                            <input type="file" id="photo" name="photo" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                        </div>
+                    </div>
+            
+                    <div class="upload-item">
+                        <label for="signaturePreview">Signature:</label>
+                        <div id="signatureContainer">
+                            <img id="signaturePreview" src="placeholder-signature.webp" alt="Signature Preview" onclick="document.getElementById('signature').click();">
+                            <input type="file" id="signature" name="signature" accept="image/*" style="display: none;" onchange="previewSignature(event)">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
